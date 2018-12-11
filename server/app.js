@@ -26,6 +26,9 @@
 
 
     require('./route/user.route.js')(app);
+    require('./route/authentication.route.js')(app);
+    require('./route/building.route.js')(app);
+    require('./route/contract.route.js')(app);
 
     
 

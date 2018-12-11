@@ -74,7 +74,7 @@ function _onPassportAuth(req, res, error, user, info) {
   }
 }
 
-exports.login = function(req, res) {
+exports.login = function(req, res,next) {
 
   if(!req.body.email || !req.body.password) {
     sendJSONresponse(res, 400, {
@@ -84,4 +84,5 @@ exports.login = function(req, res) {
   }
 
   passport.authenticate('local', _onPassportAuth.bind(this, req, res))(req, res);
+
 };
