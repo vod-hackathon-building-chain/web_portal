@@ -89,4 +89,5 @@ exports.login = function(req, res,next) {
     }
 
   passport.authenticate('local', _onPassportAuth.bind(this, req, res))(req, res);
+
 };

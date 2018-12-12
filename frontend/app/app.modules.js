@@ -1,7 +1,7 @@
 'use strict'
 var app = angular.module('buildingChain',
         [
-    'ngRoute','oitozero.ngSweetAlert','ngFileUpload','ngCookies','oc.lazyLoad','pascalprecht.translate','slickCarousel',
+    'ngRoute','ngFileUpload','ngCookies','oc.lazyLoad','oitozero.ngSweetAlert',
 ]).run(function($rootScope , $location,$http) {
 
   $rootScope.goTopage = function(PageName){
@@ -19,13 +19,6 @@ app.config(['$httpProvider', '$compileProvider', function ($httpProvider, $compi
   $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|blob):/);
 }]);
 
-app.config(['$translateProvider', function ($translateProvider) {
-  $translateProvider.useStaticFilesLoader({
-    prefix: 'app/translate/',
-    suffix: '.json'
-  });
-  $translateProvider.preferredLanguage('ar');
-}]);
 
 app.filter('propsFilter', function() {
   return function(items, props) {
