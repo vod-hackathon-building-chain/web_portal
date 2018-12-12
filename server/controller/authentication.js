@@ -63,25 +63,30 @@ function _onPassportAuth(req, res, error, user, info) {
   if (error) {
       return res.serverError(error);
   }
-
-  if (!user) {
+  
+  User.find({where:{email: req.body.email}}).then(user => {
+    if (!user) {
+        return res.send(401);
+    } else {
+        return res.status(200).send({
+            token: generateJwt(user),
+            user: user
+        });
+    }
+  }).catch(err => {
       return res.send(401);
-  } else {
-    return res.status(200).send({
-        token: generateJwt(user),
-        user: user
-    });
-  }
+  });
+  
 }
 
-exports.login = function(req, res) {
+exports.login = function(req, res,next) {
 
-  if(!req.body.email || !req.body.password) {
-    sendJSONresponse(res, 400, {
-      "message": "All fields required"
-    });
-    return;
-  }
+    if(!req.body.email || !req.body.password) {
+        return res.json({
+            message: "all field"
+        })
+        
+    }
 
   passport.authenticate('local', _onPassportAuth.bind(this, req, res))(req, res);
 };
