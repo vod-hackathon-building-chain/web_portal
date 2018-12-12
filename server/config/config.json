@@ -1,7 +1,7 @@
 {
     "development":{
         "username":"root",
-        "password":"root",
+        "password":"password",
         "database":"building_chain",
         "host":"localhost",
         "dialect":"mysql"

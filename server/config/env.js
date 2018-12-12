@@ -1,7 +1,7 @@
 const env = {
     database: 'building_chain',
     username: 'root',
-    password: 'root',
+    password: 'password',
     host: 'localhost',
     dialect: 'mysql',
     pool: {
