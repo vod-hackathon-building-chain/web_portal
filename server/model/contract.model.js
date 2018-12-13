@@ -12,17 +12,26 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: true
         },
         approvedByGovernment:{
-            type: Sequelize.BOOLEAN,
+            type: Sequelize.STRING,
+            allowNull: false,
+            defaultValue:false
+        },approvedByBuyer:{
+            type: Sequelize.STRING,
             allowNull: false,
             defaultValue:false
         },
         approvedByBank:{
-            type: Sequelize.BOOLEAN,
+            type: Sequelize.STRING,
             allowNull: false,
             defaultValue:false
         },
         approvedBySeller:{
-            type: Sequelize.BOOLEAN,
+            type: Sequelize.STRING,
+            allowNull: false,
+            defaultValue:false
+        },
+        hasAbuyer:{
+            type: Sequelize.STRING,
             allowNull: false,
             defaultValue:false
         },

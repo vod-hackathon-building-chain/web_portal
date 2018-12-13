@@ -5,5 +5,6 @@ module.exports = function(app) {
     app.post('/api/building', buildingController.create);
     app.put('/api/building/:buildingId', buildingController.update);
     app.get('/api/building', buildingController.findAll);
+    app.get('/api/building/buildingId/:buildingId', buildingController.findAllById);
     app.get('/api/building/:ownerId', buildingController.findByUserId);
 }

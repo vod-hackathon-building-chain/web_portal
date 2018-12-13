@@ -43,8 +43,8 @@ angular.module('buildingChain')
     }
 
     $rootScope.signOut = function () {
-                $rootScope.unsetcurrentUser();
-                $location.path('/home');
+        $rootScope.unsetcurrentUser();
+        $rootScope.goTopage("/home")
 
     }
     $rootScope.$on('$locationChangeSuccess', function () {

@@ -7,10 +7,20 @@ exports.create = (req, res, next) => {
 		res.send(building);
 	}).catch(next);
 };
-exports.findAll = (req, res, next) => {
-	Building.findAll({include: [
+exports.findAllById=(req,res,next)=>{
+	const id = req.params.buildingId;
+
+	Building.findAll({where:{id:id},include: [
 		{ model: db.users, as: 'owner' }
 	]}).then(buildings => {
+	//   next()
+	  res.send(buildings);
+	}).catch(next);
+}
+exports.findAll = (req, res, next) => {
+	Building.findAll({ include: [
+		{ model: db.users, as: 'owner' }
+	] ,order:[['createdAt', 'DESC']]}).then(buildings => {
 	//   next()
 	  res.send(buildings);
 	}).catch(next);
