@@ -59,7 +59,7 @@ exports.register = function(req, res,next) {
     
 };
 
-function _onPassportAuth(req, res, error, user, info) {
+let _onPassportAuth = (req, res, error, user, info) => {
   if (error) {
       return res.serverError(error);
   }
@@ -83,11 +83,11 @@ exports.login = function(req, res,next) {
 
     if(!req.body.email || !req.body.password) {
         return res.json({
-            message: "all field"
+            message: "something wrong in field"
         })
         
     }
 
-  passport.authenticate('local', _onPassportAuth.bind(this, req, res))(req, res);
+  passport.authenticate('local', _onPassportAuth(req, res));
 
 };
