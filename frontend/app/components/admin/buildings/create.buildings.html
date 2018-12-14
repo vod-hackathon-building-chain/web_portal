@@ -114,40 +114,46 @@
 
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
-            <li class="nav-item ">
-              <a class="nav-link" href="" ng-click="goTopage('/admin/home')">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span>
-              </a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href=""  ng-click="goTopage('/admin/users')">
-                <i class="fas fa-fw fa-users"></i>
-                <span>Users</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="" ng-click="goTopage('/admin/buildings')">
-                <i class="fas fa-fw fa-building"></i>
-                <span>Properties</span></a>
-            </li>
-    
-            <li class="nav-item ">
-              <a class="nav-link" href="" ng-click="goTopage('/admin/contracts')">
-                <i class="fas fa-fw fa-file-contract"></i>
-                <span>Contracts</span></a>
-            </li>
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="" ng-click="goTopage('/admin/pending_contracts')">
-                <i class="fas fa-fw fa-file-signature"></i>
-                    <span>Pending Contracts</span></a>
-            </li> -->
-            <li class="nav-item">
-                    <a class="nav-link" href="" ng-click="goTopage('/admin/statistics')">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                        <span>Statistics</span></a>
-            </li>
-          </ul>
+        <li class="nav-item ">
+          <a class="nav-link" href="" ng-click="goTopage('/admin/home')">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href=""  ng-click="goTopage('/admin/users')">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Users</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="" ng-click="goTopage('/admin/buildings')">
+            <i class="fas fa-fw fa-building"></i>
+            <span>Properties</span></a>
+        </li>
 
+        <li class="nav-item">
+          <a class="nav-link" href="" ng-click="goTopage('/admin/contracts')">
+            <i class="fas fa-fw fa-file-contract"></i>
+            <span>Contracts</span></a>
+        </li>
+        <!-- <li class="nav-item">
+            <a class="nav-link" href="" ng-click="goTopage('/admin/pending_contracts')">
+            <i class="fas fa-fw fa-file-signature"></i>
+                <span>Pending Contracts</span></a>
+        </li> -->
+        <li class="nav-item">
+                <a class="nav-link" href="" ng-click="goTopage('/admin/statistics')">
+                <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Statistics</span></a>
+        </li>
+      </ul>
+<style>
+.input-group-text{
+  width: 131px;
+}.input-group{
+  padding-bottom: 10px;
+}
+</style>
       <div id="content-wrapper">
 
         <div class="container-fluid">
@@ -157,53 +163,78 @@
             <li class="breadcrumb-item">
               <a href="" ng-click="goTopage('/admin/home')">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Users</li>
+            <li class="breadcrumb-item">
+                <a href="" ng-click="goTopage('/admin/buildings')">properties</a>
+              </li>
+            <li class="breadcrumb-item active">new</li>
           </ol>
+
+         
+
+          
 
           <!-- DataTables Example -->
           <div class="card mb-3">
-            <div class="card-header">
-              <i class="fas fa-table"></i>
-              Users</div>
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Email</th>
-                      <th>Phone</th>
-                      <th>Role</th>
-                      <th>Joining Date</th>
-                    </tr>
-                  </thead>
-                  <tfoot>
-                    <tr>
-                      <th>Name</th>
-                      <th>Email</th>
-                      <th>Phone</th>
-                      <th>Role</th>
-                      <th>Joining Date</th>
-                    </tr>
-                  </tfoot>
-                  <tbody>
-                    <tr ng-repeat="user in users">
-                      <td>{{user.name}}</td>
-                      <td>{{user.email}}</td>
-                      <td>{{user.phone}}</td>
-                      <td>{{user.role}}</td>
-                      <td>{{user.createdAt}}</td>
-                    </tr>
-                    
-                  </tbody>
-                </table>
+            <div class="row">
+              <div class="col-md-8">
+                  <div class="card-header">
+                      <i class="fas fa-building"></i>
+                      Property Details
+                  </div>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-12">
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="">City</span>
+                            </div>
+                            <input type="text" class="form-control" ng-model="d.city">
+                          </div>
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="">Address</span>
+                            </div>
+                            <input type="text" class="form-control" ng-model="d.address">
+                          </div>
+                          <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Stock price</span>
+                              </div>
+                              <input type="text" class="form-control" ng-model="d.price">
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="">Available Stock</span>
+                                </div>
+                                <input type="text" class="form-control" ng-model="d.availableStock">
+                              </div>
+                              <div class="input-group" style="text-align: right">
+                                <button type="button" class="btn btn-sm btn-success" ng-click="addBuilding(d)">Add</button>
+                              </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                  <div class="card-header">
+                      <i class="fas fa-map-marked-alt"></i>
+                      Property Location
+                  </div>
+                  <div class="card-body">
+                      <div style="width: 100%; height: 480px" id="mapContainer"></div>
+                  </div>
               </div>
             </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
           </div>
 
         </div>
         <!-- /.container-fluid -->
+        <input type="hidden" id="lat" value="30.0444" ></input>
+        <input type="hidden" id="long" value="31.2357" ></input>
+        <input type="hidden" id="zoom" value="8"></input>
 
         <!-- Sticky Footer -->
         <footer class="sticky-footer">
@@ -258,8 +289,7 @@
     <script src="js/sb-admin.min.js"></script>
 
     <!-- Demo scripts for this page-->
-    <script src="js/demo/datatables-demo.js"></script>
-    <script src="js/demo/chart-area-demo.js"></script>
+    <!-- <script src="js/demo/datatables-demo.js"></script> -->
 
   </body>
 

@@ -15,27 +15,33 @@ module.exports = (sequelize, Sequelize) => {
         },
         numberOfRooms: {
             type: Sequelize.INTEGER,
-            allowNull: true
+            allowNull: true,
+            defaultValue:0
         },
         numberOfBathrooms: {
             type: Sequelize.INTEGER,
-            allowNull: true
+            allowNull: true,
+            defaultValue:0
         },
         numberOfBalcony: {
             type: Sequelize.INTEGER,
-            allowNull: true
+            allowNull: true,
+            defaultValue:0
         },
         level: {
             type: Sequelize.INTEGER,
-            allowNull: true
+            allowNull: true,
+            defaultValue:0
         },
         area: {
             type: Sequelize.INTEGER,
-            allowNull: true
+            allowNull: true,
+            defaultValue:0
         },
         isFurnitured: {
             type: Sequelize.BOOLEAN,
-            allowNull: true
+            allowNull: true,
+            defaultValue:0
         },
         city:{
             type: Sequelize.STRING,
@@ -43,39 +49,53 @@ module.exports = (sequelize, Sequelize) => {
         },
         waterTotalReader : {
             type: Sequelize.STRING,
-            allowNull: true
+            allowNull: true,
+            defaultValue:0
         }, 
         waterMonthReader : {
             type: Sequelize.STRING,
-            allowNull: true
+            allowNull: true,
+            defaultValue:0
         }, 
         waterTotalToPay : {
             type: Sequelize.STRING,
-            allowNull: true
+            allowNull: true,
+            defaultValue:0
         },
         gasTotalReader : {
             type: Sequelize.STRING,
-            allowNull: true
+            allowNull: true,
+            defaultValue:0
         }, 
         gasMonthReader : {
             type: Sequelize.STRING,
-            allowNull: true
+            allowNull: true,
+            defaultValue:0
         },
         gasTotalToPay : {
             type: Sequelize.STRING,
-            allowNull: true
+            allowNull: true,
+            defaultValue:0
         },
         electricityTotalReader : {
             type: Sequelize.STRING,
-            allowNull: true
+            allowNull: true,
+            defaultValue:0
         },
         electricityMonthReader : {
             type: Sequelize.STRING,
-            allowNull: true
+            allowNull: true,
+            defaultValue:0
         },
         electricityTotalToPay : {
             type: Sequelize.STRING,
-            allowNull: true
+            allowNull: true,
+            defaultValue:0
+        },
+        availableStock:{
+            type: Sequelize.STRING,
+            allowNull: true,
+            defaultValue:0
         },
         approved:{
             type: Sequelize.BOOLEAN,

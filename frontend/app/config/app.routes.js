@@ -84,6 +84,21 @@ angular.module('buildingChain').config(function ($routeProvider, $ocLazyLoadProv
             }]
         }
         
+    }).when('/admin/new/buildings', {
+        templateUrl: "../app/components/admin/buildings/create.buildings.html",
+        controller:"createBuildingController",
+        resolve: {
+            deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                    files: [
+                        "../app/components/admin/buildings/create.building.controller.js",
+                        "../app/components/admin/buildings/building.service.js"
+                    ]
+                });
+            }]
+        }
+        
+        
     }).when('/admin/contracts/:contractId', {
         templateUrl: "../app/components/admin/contracts/single.contract.html",
         controller:"singleContractController",
@@ -92,7 +107,8 @@ angular.module('buildingChain').config(function ($routeProvider, $ocLazyLoadProv
                 return $ocLazyLoad.load({
                     files: [
                         "../app/components/admin/contracts/single.contract.controller.js",
-                        "../app/components/admin/contracts/contract.service.js"
+                        "../app/components/admin/contracts/contract.service.js",
+                        "../app/components/admin/buildings/building.service.js"
                     ]
                 });
             }]

@@ -18,7 +18,16 @@ exports.update = (req, res, next) => {
 					 res.status(200).send("updated successfully a contract with id = " + id);
 				   }).catch(next);
 };
+exports.findAllById=(req,res,next)=>{
+	const id = req.params.contractId;
 
+	Contract.findAll({where:{id:id},include: [
+		{ model: db.users, as: 'buyer' },{ model: db.building, as: 'building' }
+	]}).then(buildings => {
+	//   next()
+	  res.send(buildings);
+	}).catch(next);
+}
 exports.findContractsBycritira=(req, res, next)=>{
     critira = {};
     if(req.query){

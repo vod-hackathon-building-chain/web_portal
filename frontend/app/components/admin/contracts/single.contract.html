@@ -128,7 +128,7 @@
           <li class="nav-item">
             <a class="nav-link" href="" ng-click="goTopage('/admin/buildings')">
               <i class="fas fa-fw fa-building"></i>
-              <span>Buildings</span></a>
+              <span>Properties</span></a>
           </li>
   
           <li class="nav-item active">
@@ -163,15 +163,134 @@
             <li class="breadcrumb-item active">Details</li>
           </ol>
 
-         
-
-          
-
-          <!-- DataTables Example -->
           <div class="card mb-3">
-            
-            
-          </div>
+              <div class="row">
+                  <div class="col-md-6">
+                        <div class="card-header">
+                          <i class="fas fa-user"></i>
+                          Owner Details
+                        </div>
+                      <div class="card-body">
+                          <label><b>Name:</b></label> {{data[0].building.owner.name}}<br>
+                          <label><b>NationalId:</b></label> {{data[0].building.owner.nationalId}}<br>
+                          <label><b>Phone:</b></label> {{data[0].building.owner.phone}}<br>
+                          <label><b>Joining Date:</b></label> {{data[0].building.owner.createdAt}}<br>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                        <div class="card-header">
+                          <i class="fas fa-user"></i>
+                          Buyer Details
+                        </div>
+                      <div class="card-body" ng-show="data[0].buyer">
+                          <label><b>Name:</b></label> {{data[0].buyer.name}}<br>
+                          <label><b>NationalId:</b></label> {{data[0].buyer.nationalId}}<br>
+                          <label><b>Phone:</b></label> {{data[0].buyer.phone}}<br>
+                          <label><b>Joining Date:</b></label> {{data[0].buyer.createdAt}}<br>
+                          <button type="button" class="btn btn-sm btn-danger">check Bank balance</button>
+                      </div>
+                      <div class="card-body" ng-show="!data[0].buyer">
+                            <label><b>No buyer yet</b></label>
+                      </div>
+                  </div>
+              </div>
+                <div class="row">
+                  <div class="col-md-6">
+                      <div class="card-header">
+                          <i class="fas fa-building"></i>
+                          Property Details
+                      </div>
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <label><b>City:</b></label> {{data[0].building.city}}<br>
+                            <label><b>Address:</b></label> {{data[0].building.address}}<br>
+                            <label><b>Level:</b></label> {{data[0].building.level}}<br>
+                            <label><b>Area:</b></label> {{data[0].building.area}}<br>
+                            <label><b>Number of rooms:</b></label> {{data[0].building.numberOfRooms}}<br>
+                            <label><b>number of bathrooms:</b></label> {{data[0].building.numberOfBathrooms}}<br>
+                            <label><b>number of balcony:</b></label> {{data[0].building.numberOfBalcony}}<br>
+    
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                        <div class="col-md-6">
+                            
+                            <div class="card-header">
+                                <i class="fas fa-bolt"></i>
+                                Property Usage
+                            </div>
+                            <div class="card-body" >
+                              <div class="row">
+                                <div class="col-md-8">
+                                    <label><b>Water total to pay: </b></label> {{data[0].building.waterTotalToPay}} LE
+                                </div>
+                                <div class="col-md-4">
+                                    <button style="float: right"ng-show="data[0].building.waterTotalToPay > 0" type="button" class="btn btn-sm btn-primary" ng-click="deductAmount(data[0].building,1)">deduct amount</button>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-8">
+                                    <label><b>Gas total to pay: </b></label> {{data[0].building.gasTotalToPay}} LE
+                                </div>
+                                <div class="col-md-4">
+                                    <button style="float: right"ng-show="data[0].building.gasTotalToPay > 0" type="button" class="btn btn-sm btn-primary" ng-click="deductAmount(data[0].building,2)">deduct amount</button>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-8">
+                                    <label><b>Electricity total to pay: </b></label> {{data[0].building.electricityTotalToPay}} LE
+                                </div>
+                                <div class="col-md-4">
+                                    <button style="float: right"ng-show="data[0].building.electricityTotalToPay > 0" type="button" class="btn btn-sm btn-primary" ng-click="deductAmount(data[0].building,3)">deduct amount</button>
+                                </div>
+                              </div>
+
+                              
+                            </div>
+                        </div>
+          
+                      </div>
+                      <div class="row">
+                          <div class="col-md-6">
+                              
+                        <div  ng-show="data[0].approvedByGovernment == 0">
+                                <div class="col-md-12">
+                                  <button style="width: 100%"  type="button" class="btn btn-sm btn-success" ng-click="approve(data)">Approve Contract</button>
+                                </div>  
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                                <div class="row">
+                                        <div class="col-md-6">
+                                          <span style="    float: left;
+                                          margin-right: 32px;">
+                                              <label><b>Price: </b></label> {{data[0].price}} LE
+                                          </span>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <button class="btn btn-sm btn-primary">Deduct Government Taxes</button>
+                                      </div>
+                                    </div>
+                          </div>
+                      </div>
+                </div>
+                <input type="hidden" id="lat" value="{{data[0].building.latitude}}"></input>
+                <input type="hidden" id="long" value="{{data[0].building.longitudes}}"></input>
+                <input type="hidden" id="zoom" value="10"></input>
+                <div class="row">
+                  <div class="col-md-12">
+                      <div class="card-header">
+                          <i class="fas fa-map-marked-alt"></i>
+                          Property Location
+                      </div>
+                      <div class="card-body">
+                          <div style="width: 100%; height: 480px" id="mapContainer"></div>
+                      </div>
+                  </div>
+                </div>
+              </div>
 
         </div>
         <!-- /.container-fluid -->

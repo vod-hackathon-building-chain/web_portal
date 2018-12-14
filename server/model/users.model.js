@@ -14,6 +14,10 @@ module.exports = (sequelize, Sequelize) => {
 			allowNull: false
             
         },
+        nationalId:{
+            type: Sequelize.STRING,
+			allowNull: true
+        },
         role:{
             type: Sequelize.STRING,
 			allowNull: false

@@ -17,6 +17,22 @@ app.service('contractService' , function ($http, $rootScope) {
                 cb(null, err);
             })
     };
+    this.getOne = function(contractId,cb){
+        $http({
+            method: 'GET',
+            url: $rootScope.backendURL + "contract/contractId/"+contractId
+        }).then(
+            function successCallback(res) {
+                if (res.status == 500) {
+                    cb(null, res);
+                } else {
+                    cb(res);
+                }
+            },
+            function errorCallback(err) {
+                cb(null, err);
+            })
+    };
     this.update= function(d,cb){
         $http({
             method: 'PUT',

@@ -5,4 +5,6 @@ module.exports = function(app) {
     app.post('/api/contract', contractController.create);
     app.put('/api/contract/:contractId', contractController.update);
     app.get('/api/contract', contractController.findContractsBycritira);
+    app.get('/api/contract/contractId/:contractId', contractController.findAllById);
+
 }

@@ -1,12 +1,21 @@
 angular.module('buildingChain')
-    .controller('singleBuildingController', function ($routeParams,$rootScope, $scope, $location,SweetAlert,buildingService) {
+    .controller('createBuildingController', function ($routeParams,$rootScope, $scope, $location,SweetAlert,buildingService) {
         $scope.data={};
         $scope.init = function () {
             // 
-            buildingService.getOne($routeParams.buildingId,function(res,err){
+            $scope.reloadScripts();
+        }
+        $scope.addBuilding= function(d){
+            d.latitude = document.getElementById('lat').value
+            d.longitudes = document.getElementById('long').value
+            d.approved = 1
+            d.ownerId = $rootScope.getcurrentUser().id
+            buildingService.create(d,function(res,err){
                 if(!err){
-                    $scope.data = res.data[0];
-                    $scope.reloadScripts();
+                    SweetAlert.swal("Good job!", "The Building Added successfully", "success");
+                    $rootScope.goTopage('/admin/buildings')
+                }else{
+                    SweetAlert.swal("Error", "an error occuers", "error");
                 }
             })
         }

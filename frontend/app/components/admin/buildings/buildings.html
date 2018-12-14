@@ -128,7 +128,7 @@
         <li class="nav-item active">
           <a class="nav-link" href="" ng-click="goTopage('/admin/buildings')">
             <i class="fas fa-fw fa-building"></i>
-            <span>Buildings</span></a>
+            <span>Properties</span></a>
         </li>
 
         <li class="nav-item">
@@ -157,7 +157,7 @@
             <li class="breadcrumb-item">
               <a href="" ng-click="goTopage('/admin/home')">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Buildings</li>
+            <li class="breadcrumb-item active">Properties</li>
           </ol>
 
          
@@ -168,7 +168,9 @@
           <div class="card mb-3">
             <div class="card-header">
               <i class="fas fa-table"></i>
-              Buildings</div>
+              Properties
+            <button style="float: right" class="btn btn-sm btn-success" ng-click="goTopage('/admin/new/buildings')">Add Property for investment</button>
+            </div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -185,7 +187,7 @@
                       <th>Electricity To Pay</th>
                       <th>gas To Pay</th>
                       <th>Status</th>
-                      <th>joining date</th>
+                      <!-- <th>joining date</th> -->
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -202,7 +204,7 @@
                       <th>Electricity To Pay</th>
                       <th>gas To Pay</th>
                       <th>Status</th>
-                      <th>joining date</th>
+                      <!-- <th>joining date</th> -->
                       <th>Action</th>
                     </tr>
                   </tfoot>
@@ -220,7 +222,7 @@
                       <td>{{d.gasTotalToPay}}</td>
                       <td ng-if="d.approved == 1">Approved</td>
                       <td ng-if="d.approved == 0">pending</td>
-                      <td>{{d.createdAt}}</td>
+                      <!-- <td>{{d.createdAt}}</td> -->
                       <td>
                         <div class="row" style="margin-left:0px">
                         <button ng-if="d.approved == 0" ng-click="approve(d)" type="button" class="btn btn-success btn-sm">
