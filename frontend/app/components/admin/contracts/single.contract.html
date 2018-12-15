@@ -187,7 +187,8 @@
                           <label><b>NationalId:</b></label> {{data[0].buyer.nationalId}}<br>
                           <label><b>Phone:</b></label> {{data[0].buyer.phone}}<br>
                           <label><b>Joining Date:</b></label> {{data[0].buyer.createdAt}}<br>
-                          <button type="button" class="btn btn-sm btn-danger">check Bank balance</button>
+                          <button type="button" class="btn btn-sm btn-danger" ng-click="approvefromBank(data[0])">check Bank balance</button>
+                          <label ng-if="data[0].approvedByBank === '1' " style="color: green">Approved from the bank</label>
                       </div>
                       <div class="card-body" ng-show="!data[0].buyer">
                             <label><b>No buyer yet</b></label>

@@ -31,6 +31,16 @@ angular.module('buildingChain')
                 }
             })
         }
+        $scope.approvefromBank = function(d){
+            d.approvedByBank = "1";
+            contractService.update(d,function(res,err){
+                if(!err){
+                    SweetAlert.swal("Good job!", "The Amount  deducted successfully", "success");
+                }else{
+                    SweetAlert.swal("Error", "an error occuers", "error");
+                }
+            })
+        }
         $scope.approve=function(d){
             d[0].approvedByGovernment=1;
             contractService.update(d[0],function(res,err){

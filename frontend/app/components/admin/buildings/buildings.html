@@ -183,11 +183,11 @@
                       <th>#Bathrooms</th>
                       <th>area</th>
                       <th>city</th>
-                      <th>water To Pay</th>
+                      <!-- <th>water To Pay</th>
                       <th>Electricity To Pay</th>
-                      <th>gas To Pay</th>
+                      <th>gas To Pay</th> -->
                       <th>Status</th>
-                      <!-- <th>joining date</th> -->
+                      <th>joining date</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -200,11 +200,11 @@
                       <th>#Bathrooms</th>
                       <th>area</th>
                       <th>city</th>
-                      <th>water To Pay</th>
+                      <!-- <th>water To Pay</th>
                       <th>Electricity To Pay</th>
-                      <th>gas To Pay</th>
+                      <th>gas To Pay</th> -->
                       <th>Status</th>
-                      <!-- <th>joining date</th> -->
+                      <th>joining date</th>
                       <th>Action</th>
                     </tr>
                   </tfoot>
@@ -217,12 +217,12 @@
                       <td>{{d.numberOfBathrooms}}</td>
                       <td>{{d.area}}</td>
                       <td>{{d.city}}</td>
-                      <td>{{d.waterTotalToPay}}</td>
+                      <!-- <td>{{d.waterTotalToPay}}</td>
                       <td>{{d.electricityTotalToPay}}</td>
-                      <td>{{d.gasTotalToPay}}</td>
+                      <td>{{d.gasTotalToPay}}</td> -->
                       <td ng-if="d.approved == 1">Approved</td>
                       <td ng-if="d.approved == 0">pending</td>
-                      <!-- <td>{{d.createdAt}}</td> -->
+                      <td>{{d.createdAt}}</td>
                       <td>
                         <div class="row" style="margin-left:0px">
                         <button ng-if="d.approved == 0" ng-click="approve(d)" type="button" class="btn btn-success btn-sm">

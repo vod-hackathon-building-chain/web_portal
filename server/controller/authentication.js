@@ -50,7 +50,7 @@ exports.register = function(req, res,next) {
   user.salt = saltAndHash.salt;
   user.hash = saltAndHash.hash;
 
-  User.create(user.dataValues).then(User => {		
+  User.create(user.dataValues).then(user => {		
 		return res.status(200).send({
       token: generateJwt(user),
       user: user
